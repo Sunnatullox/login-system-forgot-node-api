@@ -18,7 +18,7 @@ export const signUpUser: RequestHandler = async (
     const { name, email, password, fullName, countryCode, telNumber } =
       req.body;
     const existesUser = await User.findOne({ email });
-
+    console.log(name, email, password, fullName, countryCode, telNumber);
     if (existesUser)
       return next(createHttpError(422, "Email or phone number Alread Exist!"));
     // regex for email

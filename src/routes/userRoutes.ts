@@ -5,8 +5,6 @@ import {
   signInUser,
   signUpUser,
 } from "../controllers/userController";
-
-
 import {
   signUpValidation,
   signInValidation,
@@ -14,9 +12,15 @@ import {
 
 const router = Router();
 
+
+router.get("/", async (req, res) => {
+  res.json({ message: "Welcome to my Login System" });
+});
+
+
 router.post("/signUp", signUpValidation, signUpUser);
 router.post("/signIn", signInValidation, signInUser);
 router.post("/send-verification-email", sendVerificationEmail);
-router.post("/send-forgot-password", sendForgotPassword);
+router.put("/forgot-password", sendForgotPassword);
 
 export default router;

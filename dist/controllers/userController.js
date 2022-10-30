@@ -46,6 +46,7 @@ const signUpUser = (req, res, next) => __awaiter(void 0, void 0, void 0, functio
     try {
         const { name, email, password, fullName, countryCode, telNumber } = req.body;
         const existesUser = yield UsersModels_js_1.default.findOne({ email });
+        console.log(name, email, password, fullName, countryCode, telNumber);
         if (existesUser)
             return next((0, http_errors_1.default)(422, "Email or phone number Alread Exist!"));
         // regex for email

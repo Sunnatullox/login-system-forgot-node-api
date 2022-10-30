@@ -1,0 +1,329 @@
+{
+    "openapi": "3.0.3",
+    "info": {
+        "version": "1.0.0",
+        "title": "Swagger Petstore",
+        "description": "A sample API that uses a petstore as an example to demonstrate features",
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://apache.org/"
+        }
+    },
+    "servers": [
+        {
+            "url": "http://localhost:5000",
+            "description": "Developer Server Port"
+        },
+        {
+            "url": "https://login-task-api.herokuapp.com/",
+            "description": "Https Hosting Heroku"
+        }
+    ],
+    "paths": {
+        "/api": {
+            "get": {
+                "description": "List all posts",
+                "tags": ["Registers"],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "example": {
+                                                "id": "Welcome to my Login System"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/signUp": {
+            "post": {
+                "description": "Registers a new account for a pet",
+                "tags": ["Registers"],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "format": "email"
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "format": "password"
+                                    },
+                                    "fullName": {
+                                        "type": "string",
+                                        "description": "The full name of the user."
+                                    },
+                                    "countryCode": {
+                                        "type": "number",
+                                        "description": "The country code."
+                                    },
+                                    "telNumber": {
+                                        "type": "number",
+                                        "description": "The tel number of the user."
+                                    }
+                                },
+                                "example": {
+                                    "name": "John Doe",
+                                    "email": "johndoe@email.com",
+                                    "password": "jdoe",
+                                    "fullName": "John Doe",
+                                    "countryCode": 1,
+                                    "telNumber": 123456789
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "_id": {
+                                            "type": "string",
+                                            "description": "Pet id",
+                                            "example": "1"
+                                        },
+                                        "email": {
+                                            "type": "string"
+                                        },
+                                        "password": {
+                                            "type": "string"
+                                        },
+                                        "name": {
+                                            "type": "string"
+                                        },
+                                        "countryCode": {
+                                            "type": "number"
+                                        },
+                                        "telNumber": {
+                                            "type": "number"
+                                        },
+                                        "createdAt": {
+                                            "type": "string",
+                                            "format": "date-time",
+                                            "readOnly": true
+                                        },
+                                        "updatedAt": {
+                                            "type": "string",
+                                            "format": "date-time",
+                                            "readOnly": true
+                                        }
+                                    },
+                                    "example": {
+                                        "messgae": {
+                                            "name": "John Doe",
+                                            "email": "johndoe@email.com",
+                                            "password": "jdoe",
+                                            "fullName": "John Doe",
+                                            "countryCode": 1,
+                                            "telNumber": 123456789,
+                                            "createdAt": "2020-02-20T12:00:00+00:00",
+                                            "updatedAt": "2020-02-20T12:00:00+00:00",
+                                            "_id": "5c0e74ba9acc3c5a84a512"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/signIn": {
+            "post": {
+                "description": "Registers a new account for a pet",
+                "tags": ["Registers"],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "email": {
+                                        "type": "string",
+                                        "format": "email"
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "format": "password"
+                                    }
+                                },
+                                "example": {
+                                    "email": "johndoe@email.com",
+                                    "password": "Jon123"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "_id": {
+                                            "type": "string"
+                                        },
+                                        "name": {
+                                            "type": "string"
+                                        },
+                                        "email": {
+                                            "type": "string",
+                                            "format": "email"
+                                        },
+                                        "password": {
+                                            "type": "string",
+                                            "format": "password"
+                                        }
+                                    },
+                                    "example": {
+                                        "messgae": {
+                                            "name": "John Doe",
+                                            "email": "johndoe@email.com",
+                                            "password": "jdoe",
+                                            "fullName": "John Doe",
+                                            "countryCode": 1,
+                                            "telNumber": 123456789,
+                                            "createdAt": "2020-02-20T12:00:00+00:00",
+                                            "updatedAt": "2020-02-20T12:00:00+00:00",
+                                            "_id": "5c0e74ba9acc3c5a84a512"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/send-verification-email": {
+            "post": {
+                "description": "Verifies the email address associated with a user",
+                "tags": ["Verifications"],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "email": {
+                                        "type": "string",
+                                        "format": "email"
+                                    }
+                                },
+                                "example": {
+                                    "email": "johndoe@email.com"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Email sent"
+                                        }
+                                    },
+                                    "example": {
+                                        "message": "-JIf42G-JD3"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/forgot-password": {
+            "put": {
+                "description": "Sends a password reset link for a user",
+                "tags": ["ForgotPassword"],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "userId": {
+                                        "type": "string",
+                                        "format": "uuid"
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "format": "password"
+                                    }
+                                },
+                                "example": {
+                                    "userId": "5c0e74ba9acc3c5a84a512",
+                                    "password": "gb24fcsa"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "email": {
+                                            "type": "string",
+                                            "format": "email"
+                                        }
+                                    },
+                                    "example": {
+                                        "messgae": {
+                                            "name": "John Doe",
+                                            "email": "johndoe@email.com",
+                                            "password": "jdoe",
+                                            "fullName": "John Doe",
+                                            "countryCode": 1,
+                                            "telNumber": 123456789,
+                                            "createdAt": "2020-02-20T12:00:00+00:00",
+                                            "updatedAt": "2020-02-20T12:00:00+00:00",
+                                            "_id": "5c0e74ba9acc3c5a84a512"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
